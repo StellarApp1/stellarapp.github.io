@@ -1,367 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>StellarApp – Empleo, reputación profesional y trabajos en España y Europa</title>
 
-  <title>StellarApp – Empleo, reputación profesional y reseñas verificadas</title>
-  <meta
-    name="description"
-    content="StellarApp es la plataforma europea de empleo y reputación profesional que conecta a empleados y empleadores mediante perfiles verificables, reseñas reales y ofertas laborales."
-  />
+    <meta
+      name="description"
+      content="StellarApp es una plataforma europea de empleo y reputación profesional basada en reseñas verificadas. Conecta empleados y empleadores, empezando por el mercado laboral de España."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="canonical" href="https://www.stellar-app.net" />
+    <!-- Open Graph básico -->
+    <meta property="og:title" content="StellarApp – Empleo y reputación profesional" />
+    <meta
+      property="og:description"
+      content="Plataforma para empleo, trabajos en España y reputación profesional con reseñas verificadas."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stellarapp.github.io/" />
 
-  <style>
-    :root {
-      --primary: #ccb73b;
-      --primary-dark: #b3a036;
-      --bg: #f5f5f7;
-      --text: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffffff 0, #f3f4f6 45%, #e5e7eb 100%);
-      color: var(--text);
-      padding: 40px 16px;
-    }
-
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      box-shadow:
-        0 22px 45px rgba(15, 23, 42, 0.06),
-        0 10px 18px rgba(15, 23, 42, 0.04);
-      padding: 32px 20px 32px;
-    }
-
-    @media (min-width: 768px) {
-      .page {
-        padding: 40px 40px 36px;
+    <!-- Minimal CSS -->
+    <style>
+      :root {
+        --yellow: #ccb73b;
+        --yellow-dark: #b3a036;
+        --bg: #f4f4f5;
+        --text-main: #111827;
+        --text-muted: #4b5563;
+        --border: #e5e7eb;
       }
-    }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f9fafb;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 4px 12px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--primary);
-    }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: white;
+        color: var(--text-main);
+      }
 
-    h1 {
-      font-size: 26px;
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
+      header {
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(to bottom, #f9fafb, #ffffff);
+      }
 
-    @media (min-width: 768px) {
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: #ffffffcc;
+        color: #374151;
+      }
+
       h1 {
-        font-size: 32px;
+        font-size: clamp(1.9rem, 3vw, 2.4rem);
+        margin: 1rem 0 0.75rem;
+        font-weight: 800;
+        line-height: 1.1;
       }
-    }
 
-    h1 span {
-      color: var(--primary);
-    }
+      h1 span {
+        color: var(--yellow);
+      }
 
-    p.lead {
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 20px;
-      max-width: 640px;
-    }
+      p.lead {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+        max-width: 42rem;
+        line-height: 1.5;
+      }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid transparent;
-      transition: all 0.18s ease;
-      cursor: pointer;
-    }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 1.2rem;
+        border-radius: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease,
+          transform 0.1s ease;
+      }
 
-    .btn-primary {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #000;
-      box-shadow:
-        0 14px 30px rgba(204, 183, 59, 0.35),
-        0 6px 14px rgba(204, 183, 59, 0.3);
-    }
+      .btn-primary {
+        background: var(--yellow);
+        color: #000;
+        border-color: var(--yellow);
+      }
 
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
-      transform: translateY(-1px);
-    }
+      .btn-primary:hover {
+        background: var(--yellow-dark);
+        border-color: var(--yellow-dark);
+        transform: translateY(-1px);
+      }
 
-    .btn-ghost {
-      background: #ffffff;
-      border-color: var(--border);
-      color: var(--text);
-    }
+      .btn-secondary {
+        background: #ffffff;
+        color: #111827;
+        border-color: var(--border);
+      }
 
-    .btn-ghost:hover {
-      background: #f9fafb;
-      border-color: #d1d5db;
-    }
+      .btn-secondary:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        transform: translateY(-1px);
+      }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 24px;
-    }
+      .btn-ghost {
+        background: transparent;
+        color: #111827;
+        border-color: transparent;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
 
-    @media (min-width: 768px) {
+      main {
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      section {
+        padding: 2rem 1.25rem;
+      }
+
       .grid {
-        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-        gap: 32px;
+        display: grid;
+        gap: 1.5rem;
       }
-    }
 
-    h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    h3 {
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-
-    .block {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: #f9fafb;
-      padding: 14px 16px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #4b5563;
-    }
-
-    ul {
-      list-style: disc;
-      padding-left: 20px;
-      margin-top: 6px;
-    }
-
-    li {
-      margin-bottom: 4px;
-    }
-
-    .links-section {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px dashed var(--border);
-    }
-
-    .link-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      font-size: 13px;
-    }
-
-    @media (min-width: 640px) {
-      .link-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      @media (min-width: 768px) {
+        section {
+          padding: 2.5rem 1.25rem 3rem;
+        }
+        .grid-2 {
+          grid-template-columns: 1.4fr 1fr;
+        }
+        .grid-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
       }
-    }
 
-    .link-item a {
-      text-decoration: none;
-      color: #1f2933;
-    }
+      h2 {
+        font-size: 1.3rem;
+        margin: 0 0 0.5rem;
+      }
 
-    .link-item a:hover {
-      text-decoration: underline;
-    }
+      h3 {
+        font-size: 1.05rem;
+        margin: 0 0 0.25rem;
+      }
 
-    .footer {
-      margin-top: 28px;
-      padding-top: 14px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+      .card {
+        background: white;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border);
+        padding: 1rem;
+        box-shadow: 0 10px 25px -18px rgba(15, 23, 42, 0.3);
+      }
 
-    .footer a {
-      color: var(--muted);
-      text-decoration: none;
-    }
+      .muted {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
 
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
+      ul {
+        padding-left: 1.1rem;
+        margin: 0.3rem 0 0;
+      }
 
-<body>
-  <main class="page">
+      li {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-size: 0.7rem;
+        color: #374151;
+        background: #f9fafb;
+        margin-right: 0.35rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .pill span {
+        font-weight: 600;
+        margin-right: 0.1rem;
+      }
+
+      .pills {
+        margin-top: 0.4rem;
+      }
+
+      footer {
+        padding: 1.5rem 1.25rem 2rem;
+        font-size: 0.8rem;
+        color: #6b7280;
+      }
+
+      footer a {
+        color: #374151;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
     <header>
-      <div className="badge">
-        <span class="badge-dot"></span>
-        <span>Plataforma europea de empleo y reputación profesional</span>
-      </div>
+      <div class="container">
+        <span class="badge">
+          ? StellarApp · Empleo · Reputación profesional · Europa
+        </span>
 
-      <h1>
-        StellarApp: empleo, reseñas verificadas y
-        <span> reputación profesional</span>
-      </h1>
+        <h1>
+          StellarApp: empleo, reputación profesional y trabajos en
+          <span>España y Europa</span>
+        </h1>
 
-      <p class="lead">
-        <strong>StellarApp</strong> conecta a empleados y empleadores mediante perfiles verificables,
-        reseñas reales de clientes finales y un sistema de reconocimiento alineado con el
-        <strong>ODS 8</strong> (Trabajo decente y crecimiento económico).
-      </p>
+        <p class="lead">
+          StellarApp es una plataforma europea que conecta empleados y
+          empleadores a través de perfiles profesionales y reseñas verificadas.
+          Nace en el mercado laboral español y se orienta a sectores con trato
+          directo con clientes: hostelería, comercio, logística, belleza,
+          transporte y más.
+        </p>
 
-      <div class="cta-row">
-        <a
-          href="https://www.stellar-app.net/es"
-          class="btn btn-primary"
-          target="_blank"
-        >
-          Ir a la plataforma (versión en español)
-        </a>
-        <a
-          href="https://www.stellar-app.net/es/how-it-works"
-          class="btn btn-ghost"
-          target="_blank"
-        >
-          Ver cómo funciona StellarApp
-        </a>
+        <div class="buttons">
+          <a
+            class="btn btn-primary"
+            href="https://www.stellar-app.net/es"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ir a StellarApp (versión España)
+          </a>
+          <a
+            class="btn btn-secondary"
+            href="https://www.stellar-app.net"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visitar sitio principal
+          </a>
+          <a
+            class="btn btn-ghost"
+            href="https://www.stellar-app.net/es/how-it-works"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cómo funciona StellarApp
+          </a>
+        </div>
       </div>
     </header>
 
-    <section class="grid" aria-label="Descripción de StellarApp">
-      <div>
-        <h2>Qué es StellarApp</h2>
-        <div class="block">
-          <p>
-            StellarApp es una plataforma digital que ayuda a:
-          </p>
-          <ul>
-            <li><strong>Empleados</strong> a demostrar su valor con reseñas y reconocimientos verificables.</li>
-            <li><strong>Empleadores</strong> a encontrar talento con contexto real: experiencia, reputación y feedback de clientes.</li>
-            <li>Crear relaciones laborales más transparentes y sostenibles en Europa.</li>
-          </ul>
-          <p>
-            La plataforma integra perfiles profesionales, ofertas de empleo, postulaciones y una
-            <strong>sala compartida</strong> donde se reconoce al empleado del mes y del año.
-          </p>
-        </div>
-      </div>
+    <main>
+      <section>
+        <div class="container grid grid-2">
+          <div>
+            <h2>Qué es StellarApp</h2>
+            <p class="muted">
+              StellarApp combina empleo y reputación profesional en una sola
+              plataforma. En lugar de basarse solo en un CV tradicional, permite
+              que la trayectoria laboral quede respaldada por reseñas y
+              reconocimientos verificables.
+            </p>
+            <ul>
+              <li>Perfiles de empleados con experiencia y reseñas verificadas.</li>
+              <li>Empresas que publican ofertas y descubren talento fiable.</li>
+              <li>
+                Reconocimientos de empleadores y sala compartida para empleado
+                del mes y del año.
+              </li>
+            </ul>
+          </div>
 
-      <div>
-        <h3>Accesos rápidos</h3>
-        <div class="block">
-          <ul>
-            <li>
-              Guía en español:
-              <a href="https://www.stellar-app.net/es/how-it-works" target="_blank">
-                Cómo funciona StellarApp
-              </a>
-            </li>
-            <li>
-              Página SEO:
-              <a href="https://www.stellar-app.net/empleo-en-espana" target="_blank">
-                Empleo en España
-              </a>
-            </li>
-            <li>
-              Página SEO en inglés:
-              <a href="https://www.stellar-app.net/jobs-in-spain" target="_blank">
-                Jobs in Spain
-              </a>
-            </li>
-          </ul>
-          <p style="margin-top: 8px;">
-            Estos enlaces apuntan al sitio principal:
-            <a href="https://www.stellar-app.net" target="_blank">
-              www.stellar-app.net
-            </a>
-          </p>
+          <div class="card">
+            <h3>Enfoque en el mercado español</h3>
+            <p class="muted">
+              El primer foco de StellarApp es España, con páginas específicas
+              para empleo y trabajos en ciudades y profesiones clave.
+            </p>
+            <ul>
+              <li>Empleo en España por ciudad y profesión.</li>
+              <li>
+                Conexión entre empresas y personas que trabajan cara al público.
+              </li>
+              <li>
+                Visibilidad real: reputación basada en lo que pasa en el día a
+                día del trabajo.
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="links-section" aria-label="Enlaces internos destacados">
-      <h3>Enlaces destacados de StellarApp</h3>
-      <div class="link-list">
-        <div class="link-item">
-          <a href="https://www.stellar-app.net/es" target="_blank">
-            ???? Landing principal en español
-          </a>
-        </div>
-        <div class="link-item">
-          <a href="https://www.stellar-app.net/es/how-it-works" target="_blank">
-            ? Cómo funciona StellarApp
-          </a>
-        </div>
-        <div class="link-item">
-          <a href="https://www.stellar-app.net/jobs-in-spain" target="_blank">
-            ?? Jobs in Spain (versión en inglés)
-          </a>
-        </div>
-        <div class="link-item">
-          <a href="https://www.stellar-app.net/empleo-en-espana" target="_blank">
-            ?? Empleo en España (SEO en español)
-          </a>
-        </div>
-      </div>
-    </section>
+      <section>
+        <div class="container grid grid-3">
+          <div class="card">
+            <h3>Para empleados</h3>
+            <p class="muted">
+              Crea un perfil profesional, reúne reseñas verificadas y aplica a
+              ofertas laborales con tu reputación, no solo con tu CV.
+            </p>
+            <ul>
+              <li>Perfil reutilizable aunque cambies de ciudad o empresa.</li>
+              <li>Reconocimientos de empleadores con los que ya trabajaste.</li>
+              <li>Mayor visibilidad para trabajos de atención al público.</li>
+            </ul>
+          </div>
 
-    <footer class="footer">
-      <span>© StellarApp – Trabajo decente, reputación profesional y ODS 8.</span>
-      <span>
-        Sitio principal:
-        <a href="https://www.stellar-app.net" target="_blank">
-          https://www.stellar-app.net
-        </a>
-      </span>
+          <div class="card">
+            <h3>Para empleadores</h3>
+            <p class="muted">
+              Publica ofertas, descubre candidatos con reputación comprobable y
+              fomenta una cultura de reconocimiento interno.
+            </p>
+            <ul>
+              <li>Ofertas laborales conectadas con perfiles reales.</li>
+              <li>
+                Sala compartida con empleados reconocidos para destacar desempeño.
+              </li>
+              <li>
+                Imagen de empresa que apuesta por la transparencia y el mérito.
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>ODS 8: Trabajo decente y crecimiento económico</h3>
+            <p class="muted">
+              StellarApp se alinea con el Objetivo de Desarrollo Sostenible 8 al
+              apoyar empleo digno, visibilidad laboral justa y crecimiento
+              económico basado en talento real.
+            </p>
+            <div class="pills">
+              <span class="pill"><span>ODS</span> 8</span>
+              <span class="pill">Trabajo decente</span>
+              <span class="pill">Crecimiento económico</span>
+              <span class="pill">Reputación profesional</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          Plataforma oficial:
+          <a
+            href="https://www.stellar-app.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://www.stellar-app.net</a
+          >
+        </p>
+        <p>
+          Versión enfocada a España:
+          <a
+            href="https://www.stellar-app.net/es"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://www.stellar-app.net/es</a
+          >
+        </p>
+      </div>
     </footer>
-  </main>
-</body>
+  </body>
 </html>
